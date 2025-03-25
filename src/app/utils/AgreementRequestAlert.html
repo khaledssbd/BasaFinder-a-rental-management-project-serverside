@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Tenant Agreement Request</title>
+       <style>
+              body {
+                     font-family: Arial, sans-serif;
+                     background-color: #f4f4f4;
+                     text-align: center;
+                     padding: 20px;
+              }
+
+              .container {
+                     background: white;
+                     padding: 20px;
+                     max-width: 500px;
+                     margin: auto;
+                     border-radius: 8px;
+                     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+              }
+
+              h2 {
+                     color: #333;
+              }
+
+              p {
+                     font-size: 16px;
+                     color: #555;
+              }
+
+              .btn {
+                     display: inline-block;
+                     padding: 10px 20px;
+                     margin-top: 20px;
+                     background: #28a745;
+                     color: white;
+                     text-decoration: none;
+                     border-radius: 5px;
+                     font-size: 16px;
+              }
+
+              .btn:hover {
+                     background: #218838;
+              }
+       </style>
+</head>
+
+<body>
+
+       <div class="container">
+              <h2>New Rental Agreement Request!</h2>
+              <p>Hello {{UserName}},</p>
+              <p>A tenant has requested to sign an agreement for your rental property at
+                     <strong>{{RentalAddress}}</strong>.
+              </p>
+              <p>Please review the request and take action accordingly.</p>
+              <a href="{{buttonLink}}" class="btn">View Request</a>
+       </div>
+
+</body>
+
+</html>
