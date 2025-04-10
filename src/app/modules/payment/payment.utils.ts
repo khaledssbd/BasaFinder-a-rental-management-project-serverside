@@ -16,7 +16,7 @@ const generateTransactionId = (): string => {
 };
 
 const store_id = config.ssl.store_id as string;
-const store_passwd = config.ssl.store_pass as string;
+const store_password = config.ssl.store_password as string;
 const is_live = false; // true for live, false for sandbox
 
 // SSLCommerz init
@@ -26,7 +26,7 @@ const initializaPayment = async (total_amount: number, tran_id: string) => {
     currency: 'BDT',
     tran_id, // Use unique tran_id for each API call
     success_url: `${config.ssl.validation_url}?tran_id=${tran_id}`,
-    fail_url: config.ssl.failed_url as string,
+    fail_url: config.ssl.fail_url as string,
     cancel_url: config.ssl.cancel_url as string,
     ipn_url: 'https://riderevolt-backend-khaled.vercel.app/api/v1/ssl/ipn',
     shipping_method: 'Courier',
@@ -52,7 +52,7 @@ const initializaPayment = async (total_amount: number, tran_id: string) => {
     ship_country: 'Bangladesh',
   };
 
-  const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
+  const sslcz = new SSLCommerzPayment(store_id, store_password, is_live);
 
   try {
     const apiResponse = await sslcz.init(data);
@@ -83,7 +83,7 @@ const validatePayment = async (
   //   userData: JwtPayload,
   //   rental: TRental,
 ) => {
-  const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
+  const sslcz = new SSLCommerzPayment(store_id, store_password, is_live);
 
   const validationResponse = await sslcz.transactionQueryByTransactionId({
     tran_id,

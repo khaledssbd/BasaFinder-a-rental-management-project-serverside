@@ -144,7 +144,7 @@ const updateRentalInDB = async (
   if (userData.role === 'landlord') {
     // checking if the landlord is the owner of the Rental
     const landlord = await User.isUserExistsByEmail(userData.email);
-    if (savedRental.landlord !== landlord!._id) {
+    if (savedRental.landlord.toString() !== landlord!._id.toString()) {
       throw new AppError(StatusCodes.FORBIDDEN, 'You are not authorized!');
     }
   }
@@ -191,7 +191,7 @@ const deleteRentalFromDB = async (rentalId: string, userData: JwtPayload) => {
   if (userData.role === 'landlord') {
     const landlord = await User.isUserExistsByEmail(userData.email);
     // checking if the landlord is the owner of the Rental
-    if (rental.landlord !== landlord!._id) {
+    if (rental.landlord.toString() !== landlord!._id.toString()) {
       throw new AppError(StatusCodes.FORBIDDEN, 'You are not authorized!');
     }
   }

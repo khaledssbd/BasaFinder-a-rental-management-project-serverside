@@ -5,8 +5,10 @@ dotenv.config({ path: path.join(process.cwd(), '.env') });
 
 export default {
   NODE_ENV: process.env.NODE_ENV,
-  database_url: process.env.DATABASE_URL,
   port: process.env.PORT,
+  database_url: process.env.DATABASE_URL,
+
+  preffered_website_name: process.env.PREFFERED_WEBSITE_NAME,
 
   bcrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,
 
@@ -24,8 +26,6 @@ export default {
 
   manage_tenant_agreements_ui_page_link:
     process.env.MANAGE_TENANT_AGREEMENTS_UI_PAGE_LINK,
-
-  preffered_website_name: process.env.PREFFERED_WEBSITE_NAME,
 
   jwt: {
     jwt_access_secret: process.env.JWT_ACCESS_SECRET,
@@ -46,14 +46,14 @@ export default {
   },
 
   ssl: {
-    store_name: process.env.STORE_NAME,
-    payment_api: process.env.PAYMENT_API,
-    validation_api: process.env.VALIDATION_API,
+    // store_name: process.env.STORE_NAME,
+    // payment_api: process.env.PAYMENT_API,
+    // validation_api: process.env.VALIDATION_API,
     store_id: process.env.STORE_ID,
-    store_pass: process.env.STORE_PASSWORD,
+    store_password: process.env.STORE_PASSWORD,
     validation_url: process.env.VALIDATION_URL,
     // success_url: process.env.SUCCESS_URL,
-    failed_url: process.env.FAILED_URL,
+    fail_url: process.env.FAIL_URL,
     cancel_url: process.env.CANCEL_URL,
   },
 };
