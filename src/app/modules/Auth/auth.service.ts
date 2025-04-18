@@ -220,9 +220,9 @@ const changePassword = async (
 };
 
 // refresh user access token
-const refreshToken = async (token: string) => {
+const refreshToken = async (refreshToken: string) => {
   // checking if the given token is valid
-  const decoded = verifyToken(token, config.jwt.jwt_refresh_secret as string);
+  const decoded = verifyToken(refreshToken, config.jwt.jwt_refresh_secret as string);
 
   const { email, iat } = decoded;
 
